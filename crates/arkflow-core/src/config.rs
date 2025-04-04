@@ -42,18 +42,6 @@ pub struct HealthCheckConfig {
     pub liveness_path: String,
 }
 
-impl Default for HealthCheckConfig {
-    fn default() -> Self {
-        Self {
-            enabled: false,
-            address: "0.0.0.0:8080".to_string(),
-            path: "/health".to_string(),
-            readiness_path: "/readiness".to_string(),
-            liveness_path: "/liveness".to_string(),
-        }
-    }
-}
-
 /// Engine configuration
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct EngineConfig {
