@@ -1,4 +1,3 @@
-# Kafka输入示例配置
 
 logging:
   level: debug

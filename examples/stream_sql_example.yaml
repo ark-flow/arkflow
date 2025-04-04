@@ -1,21 +1,9 @@
-# 流式SQL处理示例配置
 logging:
   level: trace
 streams:
   - input:
       type: "file"
-      # 内存输入配置，提供一些测试消息
       path: "./examples/stream_data.json"
-#      close_on_eof: true
-#      start_from_beginning: true
-
-#  - input:
-#      type: "memory"
-#      # 内存输入配置，提供一些测试消息
-#      messages:
-#        - '{ "timestamp": 1625000000000, "value": 10, "sensor": "temp_1" }'
-#        - '{ "timestamp": 1625000001000, "value": 15, "sensor": "temp_1" }'
-#        - '{ "timestamp": 1625000002000, "value": 12, "sensor": "temp_1" }'
 
 
     pipeline:
@@ -23,10 +11,7 @@ streams:
       processors:
         - type: "json_to_arrow"
         - type: "sql"
-          # SQL查询语句，支持标准SQL语法
           query: "SELECT * ,cast(value as string) as tx FROM flow"
-          # 表名（用于SQL查询中引用）
-#          table_name: "events"
         - type: "arrow_to_json"
 
 

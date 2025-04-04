@@ -1,4 +1,3 @@
-# sql 示例配置
 logging:
   level: info
 streams:
@@ -17,7 +16,6 @@ streams:
       thread_num: 4
       processors:
         - type: "sql"
-          # SQL查询语句，支持标准SQL语法
           query: "SELECT * FROM flow"
 
 

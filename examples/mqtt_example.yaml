@@ -1,4 +1,3 @@
-# MQTT示例配置
 logging:
   level: error
 streams:
@@ -17,10 +16,7 @@ streams:
       processors:
         - type: "json_to_arrow"
         - type: "sql"
-          # SQL查询语句，支持标准SQL语法
           query: "SELECT * ,cast(value as string) as tx FROM flow WHERE value > 10"
-          # 表名（用于SQL查询中引用）
-    #          table_name: "events"
         - type: "arrow_to_json"
 
     output:

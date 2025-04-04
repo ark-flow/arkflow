@@ -27,6 +27,21 @@ pub struct LoggingConfig {
     pub file_path: Option<String>,
 }
 
+/// Health check configuration
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct HealthCheckConfig {
+    /// Whether health check is enabled
+    pub enabled: bool,
+    /// Listening address for health check server
+    pub address: String,
+    /// Path for health check endpoint
+    pub path: String,
+    /// Path for readiness check endpoint
+    pub readiness_path: String,
+    /// Path for liveness check endpoint
+    pub liveness_path: String,
+}
+
 /// Engine configuration
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct EngineConfig {
@@ -34,6 +49,8 @@ pub struct EngineConfig {
     pub streams: Vec<StreamConfig>,
     /// Logging configuration (optional)
     pub logging: Option<LoggingConfig>,
+    /// Health check configuration (optional)
+    pub health_check: Option<HealthCheckConfig>,
 }
 
 impl EngineConfig {

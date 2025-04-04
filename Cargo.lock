@@ -167,6 +167,7 @@ version = "0.2.0-rc2"
 dependencies = [
  "anyhow",
  "async-trait",
+ "axum",
  "clap",
  "colored",
  "datafusion",

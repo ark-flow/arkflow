@@ -1,6 +1,7 @@
-# generate示例配置
 logging:
   level: info
+health_check:
+  enabled: true
 streams:
   - input:
       type: "http"
