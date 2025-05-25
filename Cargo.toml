@@ -44,7 +44,7 @@ flume = "=0.11"
 rumqttc = "0.24.0"
 
 # Sql
-sqlx = { version = "0.8", features = [ "mysql","postgres","runtime-tokio", "tls-native-tls" ] }
+sqlx = { version = "0.8", features = [ "mysql","postgres","sqlite","runtime-tokio", "tls-native-tls" ] }
 
 # Kafka
 aws-msk-iam-sasl-signer = "1.0.0"

@@ -16,10 +16,9 @@ streams:
 
     output:
       type: "sql"
-      output_type:
-        type: "mysql"
-        uri: "mysql://root:1234@localhost:3306/arkflow"
-        table_name: "arkflow_test"
+      database_type: "mysql"
+      uri: "mysql://root:1234@localhost:3306/arkflow"
+      table_name: "arkflow_test"
 
     error_output:
       type: "stdout"
