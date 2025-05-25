@@ -772,9 +772,9 @@ dependencies = [
 
 [[package]]
 name = "aws-sdk-sso"
-version = "1.68.0"
+version = "1.70.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bd5f01ea61fed99b5fe4877abff6c56943342a56ff145e9e0c7e2494419008be"
+checksum = "83447efb7179d8e2ad2afb15ceb9c113debbc2ecdf109150e338e2e28b86190b"
 dependencies = [
  "aws-credential-types",
  "aws-runtime",
