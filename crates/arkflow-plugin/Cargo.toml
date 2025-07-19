@@ -22,7 +22,7 @@ humantime = { workspace = true }
 tracing = { workspace = true }
 datafusion = { workspace = true }
 datafusion-functions-json = { workspace = true }
-datafusion-table-providers = { version = "0.5", features = [
+datafusion-table-providers = { version = "0.6", features = [
     "mysql",
     "postgres",
     "duckdb",
