@@ -35,6 +35,7 @@ pub mod input;
 pub mod output;
 pub mod pipeline;
 pub mod processor;
+pub mod remote_config;
 pub mod stream;
 pub mod temporary;
 

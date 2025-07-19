@@ -253,6 +253,7 @@ dependencies = [
  "futures",
  "lazy_static",
  "num_cpus",
+ "reqwest",
  "serde",
  "serde_json",
  "serde_yaml",

@@ -16,7 +16,6 @@ use crate::config::EngineConfig;
 use std::process;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
-use tokio::signal::unix::{signal, SignalKind};
 use tokio_util::sync::CancellationToken;
 use tracing::{error, info};
 
@@ -217,9 +216,7 @@ impl Engine {
     /// 5. Waits for all streams to complete
     ///
     /// Returns an error if any part of the initialization or execution fails
-    pub async fn run(&self) -> Result<(), Box<dyn std::error::Error>> {
-        let token = CancellationToken::new();
-
+    pub async fn run(&self, token: CancellationToken) -> Result<(), Box<dyn std::error::Error>> {
         // Start the health check server
         self.start_health_check_server(token.clone()).await?;
 
@@ -243,23 +240,6 @@ impl Engine {
 
         // Set the readiness status
         self.health_state.is_ready.store(true, Ordering::SeqCst);
-        // Set up signal handlers
-        let mut sigint = signal(SignalKind::interrupt()).expect("Failed to set signal handler");
-        let mut sigterm = signal(SignalKind::terminate()).expect("Failed to set signal handler");
-        let token_clone = token.clone();
-        tokio::spawn(async move {
-            tokio::select! {
-                _ = sigint.recv() => {
-                    info!("Received SIGINT, exiting...");
-
-                },
-                _ = sigterm.recv() => {
-                    info!("Received SIGTERM, exiting...");
-                }
-            }
-
-            token_clone.cancel();
-        });
 
         for (i, mut stream) in streams.into_iter().enumerate() {
             info!("Starting flow #{}", i + 1);

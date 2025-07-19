@@ -27,4 +27,5 @@ clap = { workspace = true }
 colored = { workspace = true }
 flume = { workspace = true }
 axum = { workspace = true }
+reqwest = { workspace = true, features = ["json"] }
 num_cpus = "1.17.0"
