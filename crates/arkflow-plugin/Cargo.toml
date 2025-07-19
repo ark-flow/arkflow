@@ -83,6 +83,9 @@ tokio-modbus = { version = "0.16", default-features = false, features = ["tcp"] 
 object_store = { version = "0.12", features = ["aws", "azure", "gcp"] }
 hdfs-native-object-store = "0.14"
 
+# Delta Lake
+deltalake = { version = "0.26", features = ["s3", "azure", "gcs", "datafusion"] }
+
 # python
 pyo3 = { version = "0.24", features = ["auto-initialize", "serde"] }
 
