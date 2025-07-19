@@ -24,6 +24,7 @@ pub mod protobuf;
 pub mod python;
 pub mod sql;
 pub mod vrl;
+pub mod wasm;
 
 pub fn init() -> Result<(), Error> {
     batch::init()?;
@@ -32,5 +33,6 @@ pub fn init() -> Result<(), Error> {
     sql::init()?;
     vrl::init()?;
     python::init()?;
+    wasm::init()?;
     Ok(())
 }
